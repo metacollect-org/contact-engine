@@ -4,8 +4,8 @@ module Contact
 
     validates :uid, presence: true,
                     uniqueness: true,
-                    length: { within: 3..32 },  # arbitrary limit
-                    format: { with: /[[:lower:]]/,
+                    length: { within: 2..32 },  # arbitrary limit
+                    format: { with: /[[:lower:]]{2,32}/,
                        message: 'only allows lowercase letters' }
   end
 end

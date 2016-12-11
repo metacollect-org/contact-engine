@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117220118) do
+ActiveRecord::Schema.define(version: 20161117230330) do
+
+  create_table "contact_contacts", force: :cascade do |t|
+    t.integer "platform_id",     null: false
+    t.string  "content",         null: false
+    t.string  "accessible_type"
+    t.integer "accessible_id"
+    t.index ["accessible_type", "accessible_id"], name: "index_contact_contacts_on_accessible_type_and_accessible_id"
+  end
 
   create_table "contact_platforms", force: :cascade do |t|
     t.string "uid",  limit: 32, null: false
